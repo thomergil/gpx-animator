@@ -129,7 +129,7 @@ public final class Renderer {
         }
 
         timePointMapListList.forEach((timePointMapList) -> timePointMapList
-                            .forEach((timePointMap) -> translateCoordinatesToZeroZero(scale, timePointMap)));
+                .forEach((timePointMap) -> translateCoordinatesToZeroZero(scale, timePointMap)));
         translateCoordinatesToZeroZero(scale, wpMap);
 
         final String frameFilePattern = cfg.getOutput().toString();
@@ -386,7 +386,8 @@ public final class Renderer {
         long t0 = timePointMap.firstKey();
         long t1 = timePointMap.lastKey() + cfg.getTailDuration();
 
-        for (final Iterator<Long[]> iter = spanList.iterator(); iter.hasNext();) {
+        int dummy = 0;
+        for (final Iterator<Long[]> iter = spanList.iterator(); iter.hasNext(); dummy++) {
             final Long[] span = iter.next();
             if (t0 > span[0] && t1 < span[1]) {
                 // swallowed
